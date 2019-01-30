@@ -6,15 +6,15 @@
 
 #### 预览
 首页<br>
-![ScreenShot](https://github.com/AJLoveChina/zaoci/blob/master/screenshot/home.jpg)
+<p style='font-size:12px;color:#666;'>感谢有赞の丁文涛同学提供的新词</p>
+<img width="300" src="https://github.com/AJLoveChina/zaoci/blob/master/screenshot/home.jpg" />
+
+生成分享海报,分享到朋友圈的效果<br>
+<img width="300" src="https://github.com/AJLoveChina/zaoci/blob/master/screenshot/result.png" />
 
 
-生成分享海报<br>
-![ScreenShot](https://github.com/AJLoveChina/zaoci/blob/master/screenshot/result.png)
-
-
-点击分享的效果<br>
-![ScreenShot](https://github.com/AJLoveChina/zaoci/blob/master/screenshot/message.jpg)
+点击分享给好友or群的效果<br>
+<img width="300" src="https://github.com/AJLoveChina/zaoci/blob/master/screenshot/message.jpg" />
 
 
 #### 小程序体验
