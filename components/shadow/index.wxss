@@ -1,0 +1,28 @@
+/* components/shadow/index.wxss */
+.shadow{
+    position: fixed;
+    width:100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background-color: rgba(0, 0, 0, .3);
+    text-align: center;
+    z-index: 999;
+}
+.shadow .mid{
+    position: absolute;
+    top:40%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    display: inline-block;
+}
+.shadow .loading{
+
+}
+
+.shadow .text{
+    font-size:14px;
+    margin: 10px;
+    color:white;
+    display: block;
+}

@@ -12,7 +12,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.5.1",
+	"libVersion": "2.5.0",
 	"appid": "wxedd17c71c7e03f33",
 	"projectname": "zaoci",
 	"debugOptions": {

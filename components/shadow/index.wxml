@@ -1,0 +1,8 @@
+<!--components/shadow/index.wxml-->
+<view class="shadow">
+    <view class="mid">
+        <loading custom-class="loading" color="white"></loading>
+        <text class="text">加载中...</text>
+    </view>
+</view>
+

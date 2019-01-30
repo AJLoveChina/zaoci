@@ -19,6 +19,8 @@
         <textarea class="info-input" value="{{info}}" bindinput="infoInput"></textarea>
     </view>
 
+    <shadow wx:if="{{!isHidden}}"></shadow>
+
     <text class="tip">微信不允许诱导分享, 请您自行选择生成类型</text>
     <view class="btn-wrap">
         <button class="btn create" bindtap="create2">合成(不带二维码头像)</button>
@@ -27,8 +29,8 @@
         <button class="btn share" open-type="share">分享好友</button>
     </view>
 
-    <poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster>
-    <poster id="poster2" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster>
-    <poster id="poster3" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster>
+
+    <poster wx:if="{{!destroy}}" id="poster"   config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster>
+    <poster wx:if="{{destroy}}"  id="poster2"   config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster>
 
 </view>

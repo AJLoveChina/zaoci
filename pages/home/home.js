@@ -10,7 +10,9 @@ Page({
         ci: "我爱造新词",
         ciList: [],
         info: "我爱造新词是年轻人的一种娱乐方式",
-        posterConfig: {}
+        posterConfig: {},
+        destroy: false,
+        isHidden: true
     },
 
     /**
@@ -42,6 +44,7 @@ Page({
     },
 
     create2(){
+        this.beforeCreateCanvas();
         let config = createPosterConfig({
             list: this.data.ciList,
             info: this.data.info,
@@ -51,12 +54,23 @@ Page({
             posterConfig: config
         });
         POSTER({
-            selector: "#poster2"
+            selector: this.getSelector()
         }).onCreate()
 
     },
 
+    exchangeCanvas(){
+        this.setData({
+            destroy: !this.data.destroy
+        });
+    },
+
+    getSelector() {
+        return this.data.destroy ? "#poster2" : "#poster";
+    },
+
     create(){
+        this.beforeCreateCanvas();
         let config = createPosterConfig({
             list: this.data.ciList,
             info: this.data.info
@@ -65,12 +79,22 @@ Page({
             posterConfig: config
         });
         POSTER({
-            selector: "#poster"
+            selector: this.getSelector()
         }).onCreate()
 
     },
 
+    beforeCreateCanvas() {
+
+        this.exchangeCanvas();
+
+        this.setData({
+            isHidden: false
+        });
+    },
+
     createWithA(e) {
+        this.beforeCreateCanvas();
         let userInfo = e.detail.userInfo;
         console.log(userInfo);
         let config = createPosterConfig({
@@ -82,12 +106,17 @@ Page({
             posterConfig: config
         });
         POSTER({
-            selector: "#poster3"
+            selector: this.getSelector()
         }).onCreate()
     },
 
     onPosterSuccess(e) {
         const { detail } = e;
+
+        this.setData({
+            isHidden: true
+        });
+
         wx.previewImage({
             current: detail,
             urls: [detail]

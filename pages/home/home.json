@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "box": "../../components/box/box",
-    "poster": "../../components/poster-canvas/poster/index"
+    "poster": "../../components/poster-canvas/poster/index",
+    "shadow": "../../components/shadow/index"
   }
 }

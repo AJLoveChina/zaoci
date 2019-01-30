@@ -1,4 +1,5 @@
 /**app.wxss**/
+@import "./components/zanui/common/index.wxss";
 page{
   background-color:#f6f6f6;
 }
