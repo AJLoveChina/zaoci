@@ -10,11 +10,12 @@
 .ci-input{
     margin-top: 20px;
     border-radius: 2px;
-    background-color: white;
+    background-color: #f9f9f9;
     height: 40px;
     padding: 5px 10px;
     box-sizing: border-box;
     font-size:16px;
+    border: 1px solid #E1DDEC;
 }
 
 
@@ -29,11 +30,12 @@
 .info-input{
     width:100%;
     border-radius: 4px;
-    background-color: white;
+    background-color: #f9f9f9;
     height: 80px;
     padding: 10px;
     box-sizing: border-box;
     font-size:16px;
+    border: 1px solid #E1DDEC;
 }
 
 .btn-wrap{

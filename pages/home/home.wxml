@@ -1,15 +1,17 @@
 <!--pages/home/home.wxml-->
 <view class="home-body">
-    <box class="box" word="造"/>
-    <box class="box" word="新"/>
-    <box class="box" word="词"/>
+    <view>
+        <block wx:for="{{ciList}}">
+            <box class="box" word="{{item}}"/>
+        </block>
+    </view>
 
 
     <view>
-        <input class="ci-input" type="text" value="{{ci}}" />
+        <input class="ci-input" type="text" value="{{ci}}" bindinput="ciInput"/>
 
         <text class="tip">名字解释:</text>
-        <textarea class="info-input" value="{{info}}"></textarea>
+        <textarea class="info-input" value="{{info}}" bindinput="infoInput"></textarea>
     </view>
 
     <view class="btn-wrap">
