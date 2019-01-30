@@ -1,9 +1,14 @@
 <!--pages/home/home.wxml-->
 <view class="home-body">
-    <view>
+    <view wx:if="{{ciList.length > 0}}">
         <block wx:for="{{ciList}}">
             <box class="box" word="{{item}}"/>
         </block>
+    </view>
+    <view wx:if="{{ciList.length === 0}}">
+        <box class="box" word="小"/>
+        <box class="box" word="彩"/>
+        <box class="box" word="蛋"/>
     </view>
 
 
@@ -15,7 +20,10 @@
     </view>
 
     <view class="btn-wrap">
-        <button class="btn create">一键合成</button>
+        <button class="btn create" bindtap="create">一键合成</button>
         <button class="btn share">分享好友</button>
     </view>
+
+    <poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster>
+
 </view>

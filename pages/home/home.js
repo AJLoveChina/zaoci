@@ -1,13 +1,16 @@
 // pages/home/home.js
+import {createPosterConfig} from '../../utils/util'
+import POSTER from '../../components/poster-canvas/poster/poster'
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        ci: "造新词",
+        ci: "我爱造新词",
         ciList: [],
-        info: "造新词是指一种娱乐化的方式来解释网络用语, 仅供娱乐"
+        info: "我爱造新词是年轻人的一种娱乐方式",
+        posterConfig: {}
     },
 
     /**
@@ -37,11 +40,39 @@ Page({
             info: val
         });
     },
+
+    create(){
+        let config = createPosterConfig({
+            list: this.data.ciList,
+            info: this.data.info
+        });
+        this.setData({
+            posterConfig: config
+        });
+
+        // const poster = this.selectComponent('#poster');
+        // poster.create(config);
+        POSTER.create();
+
+    },
+
+    onPosterSuccess(e) {
+        const { detail } = e;
+        wx.previewImage({
+            current: detail,
+            urls: [detail]
+        });
+    },
+
+    onPosterFail() {
+
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+        // 测试报告取消下面注释
+        // this.create();
     },
 
     /**

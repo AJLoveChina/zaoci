@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "box": "../../components/box/box"
+    "box": "../../components/box/box",
+    "poster": "../../components/poster-canvas/poster/index"
   }
 }
