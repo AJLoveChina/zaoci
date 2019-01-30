@@ -19,5 +19,3 @@
 
 #### 小程序体验
 ![ScreenShot](https://github.com/AJLoveChina/zaoci/blob/master/images/zaoci-logo.jpg)
-
-

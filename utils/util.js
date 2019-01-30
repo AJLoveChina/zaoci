@@ -16,12 +16,15 @@ const formatNumber = n => {
 
 
 const createPosterConfig = (props) => {
-    let {list, info} = props;
+    let {list, info, userInfo} = props;
 
     let images = [];
     let texts = [];
     let xo = 54,
         yo = 52;
+    if(userInfo) {
+        yo += 80 + 50;
+    }
     let boxW = 100;
     let width = 700,
         height = 750;
@@ -83,6 +86,31 @@ const createPosterConfig = (props) => {
         zIndex:100
     });
 
+
+    if (userInfo) {
+        texts.push({
+            x: xo + 62 + 20,
+            y: 50 + 35,
+            text: userInfo.nickName,
+            fontSize:20,
+        });
+
+        texts.push({
+            x: xo,
+            y: 50 + 80 + 20,
+            text: "我刚刚创建了一个新词",
+            fontSize: 18,
+        });
+
+        images.push({
+            x: xo,
+            y: 50,
+            width:62,
+            height:62,
+            borderRadius: 62,
+            url: userInfo.avatarUrl,
+        });
+    }
     return {
         width,
         height,

@@ -49,8 +49,26 @@ Page({
         this.setData({
             posterConfig: config
         });
-        POSTER.create();
+        POSTER({
+            selector: "#poster"
+        }).onCreate()
 
+    },
+
+    createWithA(e) {
+        let userInfo = e.detail.userInfo;
+        console.log(userInfo);
+        let config = createPosterConfig({
+            list: this.data.ciList,
+            info: this.data.info,
+            userInfo,
+        });
+        this.setData({
+            posterConfig: config
+        });
+        POSTER({
+            selector: "#poster2"
+        }).onCreate()
     },
 
     onPosterSuccess(e) {
