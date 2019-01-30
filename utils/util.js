@@ -16,14 +16,17 @@ const formatNumber = n => {
 
 
 const createPosterConfig = (props) => {
-    let {list, info, userInfo} = props;
+    let list = props.list;
+    let info = props.info;
+    let nologo = props.nologo;
+    let userInfo = props.userInfo;
 
     let images = [];
     let texts = [];
     let xo = 54,
         yo = 52;
     if(userInfo) {
-        yo += 80 + 50;
+        yo += (80 + 50);
     }
     let boxW = 100;
     let width = 700,
@@ -46,7 +49,8 @@ const createPosterConfig = (props) => {
         text: "释义：",
         fontSize: 25,
         zIndex: 50
-    }, {
+    });
+    texts.push({
         x: xo + 10,
         y: (yo + boxW + 50 + 70),
         text: info,
@@ -55,15 +59,6 @@ const createPosterConfig = (props) => {
         width: 544,
         lineNum: 4,
         lineHeight: 50
-    }, {
-        x: width / 2,
-        y: 710,
-        width,
-        zIndex:101,
-        text: "长按扫一扫, 创作自己的新词",
-        fontSize:25,
-        textAlign: "center",
-        color:"#666",
     });
 
     images.push(...list.map((item, index) => {
@@ -77,14 +72,28 @@ const createPosterConfig = (props) => {
         }
     }));
 
-    images.push({
-        width: 150,
-        height: 150,
-        x: width / 2 - 75,
-        y: 530,
-        url: "/images/zaoci-logo.jpg",
-        zIndex:100
-    });
+    if (nologo === undefined) {
+        texts.push({
+            x: width / 2,
+            y: 710,
+            width: width,
+            zIndex: 101,
+            text: "长按扫一扫, 创作自己的新词",
+            fontSize: 25,
+            textAlign: "center",
+            color: "#666",
+        });
+
+        images.push({
+            width: 150,
+            height: 150,
+            x: width / 2 - 75,
+            y: 530,
+            url: "/images/zaoci-logo.jpg",
+            zIndex:100
+        });
+    }
+
 
 
     if (userInfo) {

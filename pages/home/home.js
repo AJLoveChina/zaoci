@@ -41,6 +41,21 @@ Page({
         });
     },
 
+    create2(){
+        let config = createPosterConfig({
+            list: this.data.ciList,
+            info: this.data.info,
+            nologo: true,
+        });
+        this.setData({
+            posterConfig: config
+        });
+        POSTER({
+            selector: "#poster2"
+        }).onCreate()
+
+    },
+
     create(){
         let config = createPosterConfig({
             list: this.data.ciList,
@@ -67,7 +82,7 @@ Page({
             posterConfig: config
         });
         POSTER({
-            selector: "#poster2"
+            selector: "#poster3"
         }).onCreate()
     },
 
@@ -79,8 +94,8 @@ Page({
         });
     },
 
-    onPosterFail() {
-
+    onPosterFail(e) {
+        console.log(e);
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
