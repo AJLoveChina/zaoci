@@ -49,9 +49,6 @@ Page({
         this.setData({
             posterConfig: config
         });
-
-        // const poster = this.selectComponent('#poster');
-        // poster.create(config);
         POSTER.create();
 
     },
