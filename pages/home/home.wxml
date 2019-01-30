@@ -1,0 +1,19 @@
+<!--pages/home/home.wxml-->
+<view class="home-body">
+    <box class="box" word="造"/>
+    <box class="box" word="新"/>
+    <box class="box" word="词"/>
+
+
+    <view>
+        <input class="ci-input" type="text" value="{{ci}}" />
+
+        <text class="tip">名字解释:</text>
+        <textarea class="info-input" value="{{info}}"></textarea>
+    </view>
+
+    <view class="btn-wrap">
+        <button class="btn create">一键合成</button>
+        <button class="btn share">分享好友</button>
+    </view>
+</view>

@@ -1,0 +1,8 @@
+<!--components/box/box.wxml-->
+<view class="box">
+    <view class="lt-2rb line"></view>
+    <view class="rt-2lb line"></view>
+    <view class="rm-2lm line"></view>
+    <view class="tm-2bm line"></view>
+    <view class="ci">{{word}}</view>
+</view>
