@@ -21,7 +21,7 @@
 
     <shadow wx:if="{{!isHidden}}"></shadow>
 
-    <text class="tip">微信不允许诱导分享, 请您自行选择生成类型</text>
+    <text class="tip" wx:if="{{mingan}}">兄台, 不能使用敏感词 {{minganci}}</text>
     <view class="btn-wrap">
         <button class="btn create create-with-a" open-type="getUserInfo" bindgetuserinfo="createWithA">合成(带头像)</button>
         <button class="btn" bindtap="create">合成(不带头像)</button>

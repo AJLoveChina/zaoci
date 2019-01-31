@@ -1,6 +1,7 @@
 // pages/home/home.js
 import {createPosterConfig} from '../../utils/util'
 import POSTER from '../../components/poster-canvas/poster/poster'
+import minganci from '../../data/minganci'
 Page({
 
     /**
@@ -12,7 +13,9 @@ Page({
         info: "我爱造新词是年轻人的一种娱乐方式",
         posterConfig: {},
         destroy: false,
-        isHidden: true
+        isHidden: true,
+        mingan: false,
+        minganci: ""
     },
 
     /**
@@ -87,7 +90,55 @@ Page({
         });
     },
 
+    chouqu(sentence) {
+        let list = [];
+
+        for (let i = 0; i + 2 <= sentence.length; i++) {
+            list.push(sentence.substr(i, 2));
+        }
+
+        for (let i = 0; i + 3 <= sentence.length; i++) {
+            list.push(sentence.substr(i, 3));
+        }
+
+        return list;
+    },
+
+    cifromuser() {
+        try {
+            let list = [];
+
+            list.push(...this.chouqu(this.data.ci));
+            list.push(...this.chouqu(this.data.info));
+
+            return list;
+        } catch (ex) {
+            return [];
+        }
+    },
+
+    checkMinganci() {
+        let cifromuser = this.cifromuser();
+        console.log("cifromuser", cifromuser);
+        for (let i = 0; i < cifromuser.length; i++) {
+            if (minganci[cifromuser[i]]) {
+                this.setData({
+                    mingan: true,
+                    minganci: item
+                });
+                throw new Error("包含敏感词");
+            }
+        }
+
+        this.setData({
+            mingan: false,
+            minganci: ""
+        });
+    },
+
     beforeCreateCanvas() {
+
+        this.checkMinganci();
 
         this.exchangeCanvas();
 
