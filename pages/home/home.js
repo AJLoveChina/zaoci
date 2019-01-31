@@ -124,7 +124,7 @@ Page({
             if (minganci[cifromuser[i]]) {
                 this.setData({
                     mingan: true,
-                    minganci: item
+                    minganci: cifromuser[i]
                 });
                 throw new Error("包含敏感词");
             }
