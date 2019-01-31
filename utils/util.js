@@ -72,7 +72,7 @@ const createPosterConfig = (props) => {
         }
     }));
 
-    if (nologo === undefined) {
+    if (!nologo) {
         texts.push({
             x: width / 2,
             y: 710,

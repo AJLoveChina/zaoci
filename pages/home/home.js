@@ -43,21 +43,21 @@ Page({
         });
     },
 
-    create2(){
-        this.beforeCreateCanvas();
-        let config = createPosterConfig({
-            list: this.data.ciList,
-            info: this.data.info,
-            nologo: true,
-        });
-        this.setData({
-            posterConfig: config
-        });
-        POSTER({
-            selector: this.getSelector()
-        }).onCreate()
-
+    isEnableLogo() {
+        return new Promise((resolve, reject) => {
+            wx.request({
+                url : "https://boke-1251259897.cossh.myqcloud.com/mini-program/zaoci/config.json?t=" + (+ new Date()),
+                success(res) {
+                    resolve(res.data.isEnableQRCode)
+                },
+                fail() {
+                    resolve(false)
+                }
+            });
+        })
     },
+
+
 
     exchangeCanvas(){
         this.setData({
@@ -71,17 +71,20 @@ Page({
 
     create(){
         this.beforeCreateCanvas();
-        let config = createPosterConfig({
-            list: this.data.ciList,
-            info: this.data.info
-        });
-        this.setData({
-            posterConfig: config
-        });
-        POSTER({
-            selector: this.getSelector()
-        }).onCreate()
 
+        this.isEnableLogo().then(enable => {
+            let config = createPosterConfig({
+                list: this.data.ciList,
+                info: this.data.info,
+                nologo: !enable
+            });
+            this.setData({
+                posterConfig: config
+            });
+            POSTER({
+                selector: this.getSelector()
+            }).onCreate()
+        });
     },
 
     beforeCreateCanvas() {
@@ -97,17 +100,22 @@ Page({
         this.beforeCreateCanvas();
         let userInfo = e.detail.userInfo;
         console.log(userInfo);
-        let config = createPosterConfig({
-            list: this.data.ciList,
-            info: this.data.info,
-            userInfo,
+
+        this.isEnableLogo().then(enable => {
+            let config = createPosterConfig({
+                list: this.data.ciList,
+                info: this.data.info,
+                userInfo,
+                nologo: !enable
+            });
+            this.setData({
+                posterConfig: config
+            });
+            POSTER({
+                selector: this.getSelector()
+            }).onCreate()
         });
-        this.setData({
-            posterConfig: config
-        });
-        POSTER({
-            selector: this.getSelector()
-        }).onCreate()
+
     },
 
     onPosterSuccess(e) {

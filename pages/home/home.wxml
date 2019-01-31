@@ -23,9 +23,8 @@
 
     <text class="tip">微信不允许诱导分享, 请您自行选择生成类型</text>
     <view class="btn-wrap">
-        <button class="btn create" bindtap="create2">合成(不带二维码头像)</button>
+        <button class="btn create create-with-a" open-type="getUserInfo" bindgetuserinfo="createWithA">合成(带头像)</button>
         <button class="btn" bindtap="create">合成(不带头像)</button>
-        <button class="btn create-with-a" open-type="getUserInfo" bindgetuserinfo="createWithA">完美合成</button>
         <button class="btn share" open-type="share">分享好友</button>
     </view>
 
